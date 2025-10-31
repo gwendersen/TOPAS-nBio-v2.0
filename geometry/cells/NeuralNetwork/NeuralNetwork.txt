@@ -1,0 +1,26 @@
+# TOPAS-nBio example - Neural Circuit
+# Example of how to read in the HDF5 node and edge files and SWC files representing a biophysically detailed neural circuit.
+#
+# All cells are composed of water and run with DNA physics module.
+
+b:Ge/QuitIfOverlapDetected="true"
+
+d:Ge/World/HLX=1.0 mm
+d:Ge/World/HLY=1.0 mm
+d:Ge/World/HLZ=1.0 mm
+b:Ge/World/Invisible="false"
+
+# Parallel world box for scoring
+s:Ge/MyBox/Type="TsBox"
+s:Ge/MyBox/Parent="World"
+d:Ge/MyBox/HLX=1.0 mm
+d:Ge/MyBox/HLY=1.0 mm
+d:Ge/MyBox/HLZ=1.0 mm
+b:Ge/MyBox/IsParallel="true"
+
+s:Ge/NeuralNetwork/Type="TsSonata"
+s:Ge/NeuralNetwork/Parent="World"
+s:Ge/NeuralNetwork/Material="G4_WATER"
+s:Ge/NeuralNetwork/MorphologyDirName="morphologies"
+s:Ge/NeuralNetwork/NodesFileName="nodes.h5"
+s:Ge/NeuralNetwork/EdgesFileName="edges.h5"
